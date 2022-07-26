@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  SignupView.swift
 //  CheckThisOut
 //
 //  Created by Vera Sazonova on 7/26/22.
@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct SignupView: View {
     var body: some View {
-        LoginView()
+        Text("Signup View")
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct SignupView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        SignupView()
     }
 }
