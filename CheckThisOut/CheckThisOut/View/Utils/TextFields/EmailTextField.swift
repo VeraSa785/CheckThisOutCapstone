@@ -16,7 +16,7 @@ struct EmailTextField: View {
         CustomTextField(text: $text, placeholder: Text("Email"), imageName: "envelope")
             .padding()
             .background(Color(.init(white: 1, alpha: 0.2)))
-            .cornerRadius(20)
+            .cornerRadius(30)
             .foregroundColor(.black)
     }
 }

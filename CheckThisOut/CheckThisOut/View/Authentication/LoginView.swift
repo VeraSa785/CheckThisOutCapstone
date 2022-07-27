@@ -23,8 +23,9 @@ struct LoginView: View {
                 
                 VStack (spacing: 20) {
                     EmailTextField(text: $email)
-                        .padding(.horizontal,30)
+                    PasswordSecureField(text: $password, placeholder: "Password")
                 } //end of VStack
+                .padding(.horizontal,30)
             }//end of VStack
         }//end of ZStack
         

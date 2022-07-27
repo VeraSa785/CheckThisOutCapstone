@@ -21,7 +21,7 @@ struct CustomTextField: View {
                 placeholder
                     .foregroundColor(foregroundColor ?? Color(.init(white: 0.4, alpha: 0.5)) )
                     .fontWeight(.bold)
-                    .padding(.leading, 40)
+                    .padding(.leading, 30)
                 }
             HStack {
                 Image(systemName: imageName)
@@ -42,8 +42,7 @@ struct CustomTextField_Previews: PreviewProvider {
     static var previews: some View {
         
         ZStack {
-            Color.black
-                .ignoresSafeArea()
+            BackgroundView()
             CustomTextField(text: .constant(""), placeholder: Text("Email"), imageName:"envelope")
         }
     }
