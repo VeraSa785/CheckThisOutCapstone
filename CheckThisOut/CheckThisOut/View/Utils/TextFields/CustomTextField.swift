@@ -19,9 +19,21 @@ struct CustomTextField: View {
         ZStack(alignment: .leading){
             if text.isEmpty {
                 placeholder
-                    .foregroundColor(foregroundColor ?? Color(.init(gray: 1, alpha: 0.8)) )
+                    .foregroundColor(foregroundColor ?? Color(.init(white: 0.4, alpha: 0.5)) )
+                    .fontWeight(.bold)
                     .padding(.leading, 40)
                 }
+            HStack {
+                Image(systemName: imageName)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 20, height: 20)
+                    .foregroundColor(foregroundColor ?? Color(.init(white: 0.4, alpha: 0.5)) )
+                    
+                
+                TextField("", text: $text)
+                    .autocapitalization(.none)
+            }
         }
     }
 }

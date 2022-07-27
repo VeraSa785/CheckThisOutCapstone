@@ -11,7 +11,7 @@ struct BackgroundView: View {
     var body: some View {
         
         ZStack{
-            Color.white
+            Color.yellow
                 .edgesIgnoringSafeArea(.all)
         }
        
