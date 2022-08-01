@@ -23,6 +23,7 @@
 		5E72CB722891FCDB005BBE58 /* CustomSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E72CB712891FCDB005BBE58 /* CustomSecureField.swift */; };
 		5E72CB742891FEE4005BBE58 /* PasswordSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E72CB732891FEE4005BBE58 /* PasswordSecureField.swift */; };
 		5E72CB7628978D56005BBE58 /* AuthenticateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E72CB7528978D56005BBE58 /* AuthenticateButton.swift */; };
+		5E72CB7828979DDD005BBE58 /* UserTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E72CB7728979DDD005BBE58 /* UserTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		5E72CB712891FCDB005BBE58 /* CustomSecureField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSecureField.swift; sourceTree = "<group>"; };
 		5E72CB732891FEE4005BBE58 /* PasswordSecureField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordSecureField.swift; sourceTree = "<group>"; };
 		5E72CB7528978D56005BBE58 /* AuthenticateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticateButton.swift; sourceTree = "<group>"; };
+		5E72CB7728979DDD005BBE58 /* UserTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +200,7 @@
 				5E72CB712891FCDB005BBE58 /* CustomSecureField.swift */,
 				5E72CB6F2890D1D2005BBE58 /* EmailTextField.swift */,
 				5E72CB732891FEE4005BBE58 /* PasswordSecureField.swift */,
+				5E72CB7728979DDD005BBE58 /* UserTextField.swift */,
 			);
 			path = TextFields;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 			files = (
 				5E72CB7628978D56005BBE58 /* AuthenticateButton.swift in Sources */,
 				5E72CB702890D1D2005BBE58 /* EmailTextField.swift in Sources */,
+				5E72CB7828979DDD005BBE58 /* UserTextField.swift in Sources */,
 				5E7139F12890B19800D79273 /* CustomTextField.swift in Sources */,
 				5E7139ED2890A6DB00D79273 /* BackgroundView.swift in Sources */,
 				5E7139EF2890AB3D00D79273 /* LogoView.swift in Sources */,
