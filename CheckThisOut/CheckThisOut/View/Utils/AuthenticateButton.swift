@@ -19,6 +19,7 @@ struct AuthenticateButton: View {
                 .frame(width: 360, height: 50)
                 .background(Color.green.opacity(0.8))
                 .clipShape(Capsule())
+                
         }
 }
 

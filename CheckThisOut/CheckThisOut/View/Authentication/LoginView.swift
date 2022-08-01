@@ -14,42 +14,62 @@ struct LoginView: View {
     
     var body: some View {
         
-        ZStack {
-            BackgroundView()
-            
-            VStack {
-                LogoView()
-                    .padding(.bottom, 25)
+        NavigationView {
+            ZStack {
+                BackgroundView()
                 
-                VStack (spacing: 20) {
-                    EmailTextField(text: $email)
-                    PasswordSecureField(text: $password, placeholder: "Password")
-                } //end of VStack
-                .padding(.horizontal,30)
-                
-                HStack {
-                    Spacer()
-                    Button {
-                        //forgot password action
-                    } label: {
-                        Text("Forgot password")
-                            .foregroundColor(.black)
-                            .font(.system(size: 13, weight: .semibold))
-                            .padding(.top)
-                            .padding(.trailing, 28)
-                    }
-                }// end of HStack
-                
-                Button {
-                    //sign in action
-                } label: {
-                    AuthenticateButton(text: "Sign In")
-                        .padding()
+                VStack {
+                    LogoView()
+                        .padding(.bottom, 25)
                     
-                }
-                
-                Spacer()
-            }//end of VStack
+                    VStack (spacing: 20) {
+                        EmailTextField(text: $email)
+                        PasswordSecureField(text: $password, placeholder: "Password")
+                    } //end of VStack
+                    .padding(.horizontal,30)
+                    
+                    HStack {
+                        Spacer()
+                        Button {
+                            //forgot password action
+                        } label: {
+                            Text("Forgot password")
+                                .foregroundColor(.black)
+                                .font(.system(size: 13, weight: .semibold))
+                                .padding(.top)
+                                .padding(.trailing, 28)
+                        }
+                    }// end of HStack
+                    
+                    Button {
+                        //sign in action
+                    } label: {
+                        AuthenticateButton(text: "Sign In")
+                            .padding()
+                        
+                    }
+                    
+                    Spacer()
+                    
+                    NavigationLink(
+                        destination: SignupView()
+                            .navigationBarHidden(true),
+                        label: {
+                            HStack {
+                                Text("Don't have an account?")
+                                    .font(.system(size: 14))
+                                Text("Sign Up")
+                                    .font(.system(size: 14, weight: .semibold))
+                            }
+                            .foregroundColor(.black)
+                            .padding(.bottom,14)
+                        }
+                    )
+
+                    
+                }//end of VStack
+                .padding(.top, -44)
+            }
         }//end of ZStack
         
         
