@@ -26,13 +26,13 @@ class ListViewModel: ObservableObject {
         
         let query = COLLECTION_USERS.document(user.id ?? "").collection("lists").order(by: "title", descending: false) // by completed??
         
-        query.getDocuments { snapsot, _ in
+        query.getDocuments { snapshot, _ in
             
-            guard let document = snapshot?.documents else {return}
-            self.list = document.compactMap({ try? $0.data(as: List.self)})
+            guard let documents = snapshot?.documents else {return}
+            self.list = documents.compactMap({ try? $0.data(as: List.self)})
             
             for index in stride(from: 0, through: self.list.count, by: 1) {
-                self.list[index].documentID = document[index].documentID
+                self.list[index].documentID = documents[index].documentID
             }
             
             self.listFiltered = self.list
