@@ -41,6 +41,8 @@
 		5E8284C4289B110D00146518 /* Lists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8284C3289B110D00146518 /* Lists.swift */; };
 		5E8284C6289B260F00146518 /* SelectedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8284C5289B260E00146518 /* SelectedButton.swift */; };
 		5E8284C8289B2A9200146518 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8284C7289B2A9200146518 /* MockData.swift */; };
+		5E8284CA289B2D1A00146518 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8284C9289B2D1A00146518 /* AuthViewModel.swift */; };
+		5E8284CC289B356D00146518 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8284CB289B356D00146518 /* DashboardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +89,8 @@
 		5E8284C3289B110D00146518 /* Lists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lists.swift; sourceTree = "<group>"; };
 		5E8284C5289B260E00146518 /* SelectedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedButton.swift; sourceTree = "<group>"; };
 		5E8284C7289B2A9200146518 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+		5E8284C9289B2D1A00146518 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		5E8284CB289B356D00146518 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +195,7 @@
 			children = (
 				5E7139E82890A37A00D79273 /* Utils */,
 				5E7139E92890A3B300D79273 /* Authentication */,
+				5E8284CB289B356D00146518 /* DashboardView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -198,6 +203,7 @@
 		5E7139E42890A1CB00D79273 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				5E8284C9289B2D1A00146518 /* AuthViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -409,6 +415,8 @@
 				5E8284C6289B260F00146518 /* SelectedButton.swift in Sources */,
 				5E7139F12890B19800D79273 /* CustomTextField.swift in Sources */,
 				5E7139ED2890A6DB00D79273 /* BackgroundView.swift in Sources */,
+				5E8284CC289B356D00146518 /* DashboardView.swift in Sources */,
+				5E8284CA289B2D1A00146518 /* AuthViewModel.swift in Sources */,
 				5E7139EF2890AB3D00D79273 /* LogoView.swift in Sources */,
 				5E72CB742891FEE4005BBE58 /* PasswordSecureField.swift in Sources */,
 				5E8284BD289B060100146518 /* Constants.swift in Sources */,
