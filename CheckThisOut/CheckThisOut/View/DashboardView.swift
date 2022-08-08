@@ -21,7 +21,7 @@ struct DashboardView: View {
             VStack {
                 HStack {
                     Spacer()
-                    Text("Check This Out!")
+                    Text(":)  Check This Out!")
                         .font(.system(size: 24))
                         .fontWeight(.semibold)
                     Spacer()
@@ -41,6 +41,15 @@ struct DashboardView: View {
                 
                 SearchBarView(searchText: $searchText)
                     .padding()
+                
+                ListButtonStack(viewModel: viewModel)
+                    .padding(.horizontal)
+                    .padding(.bottom)
+                
+                if viewModel.listFiltered.isEmpty {
+                    AddListLogo()
+                        .padding(.top)
+                }
                 
             }//end of Vstack
             
