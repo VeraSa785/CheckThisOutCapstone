@@ -34,7 +34,7 @@ struct CreateListView: View {
             
             HStack {
                 Button {
-                    viewModel.uploadList(list: List(ownerID: user.id ?? "", title: title, description: ListDescription, ListType: viewModel.filterListSelected == .all ? "Extra" : viewModel.filterListSelected.rawValue))
+                    viewModel.uploadList(list: List(ownerUiD: user.id ?? "", title: title, description: ListDescription, ListType: viewModel.filterListSelected == .all ? "Extra" : viewModel.filterListSelected.rawValue))
                     viewModel.showCreateListView = false
                 } label: {
                     CreateListButton()
@@ -71,7 +71,7 @@ struct CreateListButton: View {
             .foregroundColor(.black)
             .frame(width: 150, height: 40)
             .background(Color("Yellow"))
-//            .background(Color.black.opacity(0.6))
+            .background(Color.black.opacity(0.6))
             .clipShape(Capsule())
     }
 }
@@ -82,7 +82,7 @@ struct CancelListButton: View {
             .font(.headline)
             .foregroundColor(.white)
             .frame(width: 100, height: 40)
-//            .background(Color.white.opacity(0.6))
+            .background(Color.white.opacity(0.6))
             .background(Color.black)
             .clipShape(Capsule())
     }

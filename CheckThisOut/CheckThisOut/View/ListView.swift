@@ -17,7 +17,7 @@ struct ListView: View {
         HStack {
             
 //            Button {
-//                if todo.completed {
+//                if list.completed {
 //                    viewModel.unCompleteList(listId: list.documentID ?? "")
 //                } else {
 //                    viewModel.completeList(listId: list.documentID ?? "")

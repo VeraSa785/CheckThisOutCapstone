@@ -15,6 +15,8 @@ struct CustomTextEditor: View {
     let imageName: String
     var foregroundColor: Color?
     
+    @Environment(\.colorScheme) var colorScheme
+    
     init(text: Binding<String>, placeholder: Text, imageName: String,
         foregroundColor: Color?) {
         self._text = text
@@ -38,8 +40,9 @@ struct CustomTextEditor: View {
                         placeholder
                             .foregroundColor(foregroundColor ?? Color(.init(white: 1, alpha: 0.8)) )
                             .fontWeight(.semibold)
-                            .padding(.leading, 50)
-                        }
+                            .padding(.leading, 60)
+                            .background(.black)
+                    }
                     Spacer()
                 }
                 .padding([.vertical], 10)
@@ -66,7 +69,7 @@ struct CustomTextEditor: View {
         .frame(height: 120)
         .background(Color(.white))
         .cornerRadius(10)
-        .foregroundColor(.white)
+        .foregroundColor(colorScheme == .dark ? .white: .black)
     }
 }
 

@@ -12,7 +12,7 @@ import FirebaseFirestoreSwift
 struct List: Identifiable, Decodable {
     
     @DocumentID var id: String? = UUID().uuidString  //create unique identifier
-    let ownerID: String
+    let ownerUiD: String
     let title: String
     let description: String
     let ListType: String

@@ -54,7 +54,6 @@ class ListViewModel: ObservableObject {
                                    "description": list.description,
                                    "ListType": list.ListType,
 //                                   "completed": list.completed,
-//                                   "ownerID": user.id ?? ""]
                                    "ownerUiD": user.id ?? ""]
         COLLECTION_USERS.document(user.id ?? "").collection("lists").addDocument(data: data) { error in
             if let error = error {
