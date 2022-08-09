@@ -1,8 +1,8 @@
 //
-//  Lists.swift
+//  List.swift
 //  CheckThisOut
 //
-//  Created by Vera Sazonova on 8/3/22.
+//  Created by Vera Sazonova on 8/8/22.
 //
 
 import Foundation

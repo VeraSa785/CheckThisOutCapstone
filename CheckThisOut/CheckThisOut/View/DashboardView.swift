@@ -13,7 +13,7 @@ struct DashboardView: View {
     
     @State var searchText: String = ""
     
-    @ObservedObject var viewModel = ListViewModel()
+    @ObservedObject var viewModel = ListViewModel() //buggy
     
     var body: some View {
         ZStack {
@@ -21,9 +21,9 @@ struct DashboardView: View {
             VStack {
                 HStack {
                     Spacer()
-                    Text(":)  Check This Out!")
+                    Text("Check This Out!")
                         .font(.system(size: 24))
-                        .fontWeight(.semibold)
+                        .fontWeight(.bold)
                     Spacer()
                 } // end of Hstack
                 .overlay {
@@ -42,13 +42,13 @@ struct DashboardView: View {
                 SearchBarView(searchText: $searchText)
                     .padding()
                 
-                ListButtonStack(viewModel: viewModel)
+                ListButtonStack(viewModel: viewModel) //buggy
                     .padding(.horizontal)
                     .padding(.bottom)
                 
-                if viewModel.listFiltered.isEmpty {
+                if viewModel.listsFiltered.isEmpty {
                     AddListLogo()
-                        .padding(.top)
+                        .padding(.top,50)
                 }
                 
             }//end of Vstack

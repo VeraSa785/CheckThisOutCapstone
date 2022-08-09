@@ -10,51 +10,52 @@ import Firebase
 
 
 class ListViewModel: ObservableObject {
-    
-    @Published var list = [List]()
+
+    @Published var lists = [List]()
     @Published var showCreateListView: Bool = false
     @Published var filterListSelected: SelectedButton = .all
-    @Published var listFiltered = [List]()
-    
+    @Published var listsFiltered = [List]()
+
     init() {
         loadLists()
     }
-    
-    
+
+
     func loadLists() {
         guard let user = AuthViewModel.shared.currentUser else {return}
-        
+
         let query = COLLECTION_USERS.document(user.id ?? "").collection("lists").order(by: "title", descending: false) // by completed??
-        
+
         query.getDocuments { snapshot, _ in
-            
+
             guard let documents = snapshot?.documents else {return}
-            self.list = documents.compactMap({ try? $0.data(as: List.self)})
-            
-            for index in stride(from: 0, through: self.list.count, by: 1) {
-                self.list[index].documentID = documents[index].documentID
+            self.lists = documents.compactMap({ try? $0.data(as: List.self)})
+
+            for index in stride(from: 0, to: self.lists.count, by: 1) {
+                self.lists[index].documentID = documents[index].documentID
             }
-            
-            self.listFiltered = self.list
-            
+
+            self.listsFiltered = self.lists
+
             if self.filterListSelected != .all {
-                self.listFiltered = self.list.filter { list in
+                self.listsFiltered = self.lists.filter { list in
                     return list.ListType == self.filterListSelected.rawValue
                 }
             } else {
-                self.listFiltered = self.list
+                self.listsFiltered = self.lists
                 }
             }
         }
-    
+
     func uploadList(list: List) {
         guard let user = AuthViewModel.shared.currentUser else {return}
-        
+
         let data: [String: Any] = ["title": list.title,
-                                   "descriptoin": list.description,
+                                   "description": list.description,
                                    "ListType": list.ListType,
 //                                   "completed": list.completed,
-                                   "ownerUid": user.id ?? ""]
+//                                   "ownerID": user.id ?? ""]
+                                   "ownerUiD": user.id ?? ""]
         COLLECTION_USERS.document(user.id ?? "").collection("lists").addDocument(data: data) { error in
             if let error = error {
                 print("DEBUG: \(error.localizedDescription)")
@@ -63,10 +64,10 @@ class ListViewModel: ObservableObject {
             self.loadLists()
         }
     }
-    
+
     func deleteList(listId: String) {
         guard let uid = AuthViewModel.shared.userSession?.uid else {return}
-        
+
         COLLECTION_USERS.document(uid).collection("lists").document(listId).delete() { error in
             if let error = error {
                 print("DEBUG: \(error.localizedDescription)")
@@ -74,7 +75,7 @@ class ListViewModel: ObservableObject {
             }
             self.loadLists()
     }
-    
+
     }
     
 //    func completeList(listId: String) {

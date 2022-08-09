@@ -15,7 +15,7 @@ struct SearchBarView: View {
     var body: some View {
         
         HStack {
-            TextField("Search Lists", text: $searchText)
+            TextField("Search", text: $searchText)
                 .searchTextFieldStyle()
                 .onTapGesture (perform: {
                     isSearching = true
@@ -39,7 +39,7 @@ struct SearchBarView: View {
                         .foregroundColor(.black)
 
                 )
-                .transition(.move(edge: .trailing))
+//                .transition(.move(edge: .trailing))
             
             if isSearching {
                 Button(action: {
@@ -78,8 +78,8 @@ struct SearchTextFieldModifier: ViewModifier {
             .padding(.leading, 20)
             .padding(.horizontal)
             .frame(height: 45)
-            .background(Color(.white))
-            .cornerRadius(15)
+            .background(Color(.systemGray6))
+            .cornerRadius(5)
     }
 }
 

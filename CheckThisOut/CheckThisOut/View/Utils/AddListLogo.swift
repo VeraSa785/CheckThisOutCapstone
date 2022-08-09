@@ -17,7 +17,7 @@ struct AddListLogo: View {
             Image("LoginLogo")
                 .resizable()
                 .scaledToFit()
-                .frame(width: 150, height: 150)
+                .frame(width: 200, height: 140)
 //                .background(colorScheme == .dark ? .clear : .black)
                 .cornerRadius(80)
             

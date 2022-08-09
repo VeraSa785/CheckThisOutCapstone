@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct ListButtonStack: View {
-    
+
     @ObservedObject var viewModel: ListViewModel
-    
+
     var body: some View {
-        
+
         ScrollView(.horizontal, showsIndicators: false) {
             HStack {
                 ListButton(buttonType: .all, viewModel: viewModel)
@@ -23,7 +23,7 @@ struct ListButtonStack: View {
                 ListButton(buttonType: .home, viewModel: viewModel)
                 ListButton(buttonType: .personal, viewModel: viewModel)
                 ListButton(buttonType: .extra, viewModel: viewModel)
-                
+
             }
         }
     }
@@ -36,28 +36,28 @@ struct ListButtonStack_Previews: PreviewProvider {
 }
 
 struct ListButton: View {
-    
+
     let buttonType: SelectedButton
     @ObservedObject var viewModel: ListViewModel
-    
+
     var body: some View {
         Button {
             viewModel.filterListSelected = buttonType
-            
+
             if viewModel.filterListSelected != .all {
-                viewModel.listFiltered = viewModel.list.filter { todo in
-                    return todo.ListType == viewModel.filterListSelected.rawValue
+                viewModel.listsFiltered = viewModel.lists.filter { list in
+                    return list.ListType == viewModel.filterListSelected.rawValue
                 }
             } else {
-                    viewModel.listFiltered = viewModel.list
-                
+                    viewModel.listsFiltered = viewModel.lists
+
             }
-            
+
         } label: {
             Text("\(buttonType.getValue())")
                 .foregroundColor(viewModel.filterListSelected == buttonType ? .black : Color(.systemGray))
                 .frame(width: 100, height: 40)
-                .background(buttonType == viewModel.filterListSelected ? Color(.yellow): Color(.systemGray6))
+                .background(buttonType == viewModel.filterListSelected ? Color("Yellow"): Color(.white))
                 .cornerRadius(20)
         }
     }
