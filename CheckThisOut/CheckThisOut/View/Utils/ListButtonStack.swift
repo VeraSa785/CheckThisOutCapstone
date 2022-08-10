@@ -56,7 +56,7 @@ struct ListButton: View {
         } label: {
             Text("\(buttonType.getValue())")
                 .foregroundColor(viewModel.filterListSelected == buttonType ? .black : Color(.systemGray))
-                .frame(width: 100, height: 40)
+                .frame(width: 88, height: 40)
                 .background(buttonType == viewModel.filterListSelected ? Color("Yellow"): Color(.white))
                 .cornerRadius(20)
         }

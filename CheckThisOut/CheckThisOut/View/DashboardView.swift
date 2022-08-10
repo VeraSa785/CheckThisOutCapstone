@@ -83,7 +83,8 @@ struct DashboardView: View {
                                 .foregroundColor(.white)
                                 .font(.system(size: 30))
                                 .frame(width: 60, height: 60)
-                                .background(Color("Yellow"))
+//                                .background(Color("Yellow"))
+                                .background(Color(.black))
                                 .cornerRadius(30)
                         }
                         .padding(20)

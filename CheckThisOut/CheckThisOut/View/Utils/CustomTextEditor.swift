@@ -39,9 +39,8 @@ struct CustomTextEditor: View {
                     if text.isEmpty {
                         placeholder
                             .foregroundColor(foregroundColor ?? Color(.init(white: 1, alpha: 0.8)) )
-                            .fontWeight(.semibold)
-                            .padding(.leading, 60)
-                            .background(.black)
+                            .fontWeight(.bold)
+                            .padding(.leading, 46)
                     }
                     Spacer()
                 }
@@ -62,8 +61,9 @@ struct CustomTextEditor: View {
                     Spacer()
                 }
                 
-                TextField("", text: $text)
+                TextEditor(text: $text)
                     .autocapitalization(.none)
+    
             }
         }
         .frame(height: 120)
