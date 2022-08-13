@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ListView: View {
     
-    var list: List
+    var list: CheckList
     
     @ObservedObject var viewModel: ListViewModel
     
@@ -45,8 +45,8 @@ struct ListView: View {
                         Text("\(list.description)")
                             .font(.system(size: 14))
 //                            .foregroundColor(Color(.systemGray2))
-                            .foregroundColor(Color(.systemGray))
-//                            .foregroundColor(Color(.white))
+//                            .foregroundColor(Color(.systemGray))
+                            .foregroundColor(Color.purple.opacity(0.7))
                     } // end of Hstack
                     
                 }
@@ -59,15 +59,18 @@ struct ListView: View {
                 viewModel.deleteList(listId: list.documentID ?? "")
             } label: {
                 Image(systemName: "x.circle")
-//                    .foregroundColor(.gray)
-                    .foregroundColor(Color(.black))
+                    .foregroundColor(.purple)
+//                    .foregroundColor(Color(.black))
                     .frame(width: 22, height: 22)
+
             }
             
         } // end of Hstack
         .padding(15)
         .frame(width: UIScreen.main.bounds.size.width - 25, height: 90)
         .background(Color("Purple"))
+//        .border(.black, width: 4)
+        
     }
 }
 

@@ -11,10 +11,10 @@ import Firebase
 
 class ListViewModel: ObservableObject {
 
-    @Published var lists = [List]()
+    @Published var lists = [CheckList]()
     @Published var showCreateListView: Bool = false
     @Published var filterListSelected: SelectedButton = .all
-    @Published var listsFiltered = [List]()
+    @Published var listsFiltered = [CheckList]()
 
     init() {
         loadLists()
@@ -29,7 +29,7 @@ class ListViewModel: ObservableObject {
         query.getDocuments { snapshot, _ in
 
             guard let documents = snapshot?.documents else {return}
-            self.lists = documents.compactMap({ try? $0.data(as: List.self)})
+            self.lists = documents.compactMap({ try? $0.data(as: CheckList.self)})
 
             for index in stride(from: 0, to: self.lists.count, by: 1) {
                 self.lists[index].documentID = documents[index].documentID
@@ -47,7 +47,7 @@ class ListViewModel: ObservableObject {
             }
         }
 
-    func uploadList(list: List) {
+    func uploadList(list: CheckList) {
         guard let user = AuthViewModel.shared.currentUser else {return}
 
         let data: [String: Any] = ["title": list.title,

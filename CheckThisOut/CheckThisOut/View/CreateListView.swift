@@ -34,7 +34,7 @@ struct CreateListView: View {
             
             HStack {
                 Button {
-                    viewModel.uploadList(list: List(ownerUiD: user.id ?? "", title: title, description: ListDescription, ListType: viewModel.filterListSelected == .all ? "Extra" : viewModel.filterListSelected.rawValue))
+                    viewModel.uploadList(list: CheckList(ownerUiD: user.id ?? "", title: title, description: ListDescription, ListType: viewModel.filterListSelected == .all ? "Extra" : viewModel.filterListSelected.rawValue))
                     viewModel.showCreateListView = false
                 } label: {
                     CreateListButton()

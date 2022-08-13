@@ -38,6 +38,7 @@ struct DashboardView: View {
                         .padding(.trailing)
                     }
                 } // end of HStack overlay
+                .padding(.top)
                 
                 SearchBarView(searchText: $searchText)
                     .padding()
@@ -51,19 +52,19 @@ struct DashboardView: View {
                         .padding(.top,50)
                 }
                 
-                ScrollView {
-                    
-                    VStack(spacing: 15) {
-                    ForEach(viewModel.listsFiltered, id: \.id) { list in
-                        
-                        if searchText == "" {
-                            ListView(list: List(ownerUiD: list.ownerUiD, title: list.title, description: list.description, ListType: list.ListType, documentID: list.documentID), viewModel: viewModel)
-                        } else {
-                            if list.title.lowercased().contains(searchText.lowercased()) || list.description.lowercased().contains(searchText.lowercased()) {
-                                ListView(list: List(ownerUiD: list.ownerUiD, title: list.title, description: list.description, ListType: list.ListType, documentID: list.documentID), viewModel: viewModel)
-                            }// end of if statement
+                ScrollView { 
+
+                    VStack(spacing: 10) {
+                        ForEach(viewModel.listsFiltered, id: \.id) { list in
+
+                            if searchText == "" {
+                                ListView(list: CheckList(ownerUiD: list.ownerUiD, title: list.title, description: list.description, ListType: list.ListType, documentID: list.documentID), viewModel: viewModel)
+                            } else {
+                                if list.title.lowercased().contains(searchText.lowercased()) || list.description.lowercased().contains(searchText.lowercased()) {
+                                    ListView(list: CheckList(ownerUiD: list.ownerUiD, title: list.title, description: list.description, ListType: list.ListType, documentID: list.documentID), viewModel: viewModel)
+                                }// end of if statement
                         }
-                        
+
                     } // end of foreach
                 } //end of Vstack
                 } //end of Scrollview
@@ -96,8 +97,8 @@ struct DashboardView: View {
                 BlankView()
                 CreateListView(user: user, viewModel: viewModel)
             }
-            
         }//end of Zstack
+        
     }
 }
 

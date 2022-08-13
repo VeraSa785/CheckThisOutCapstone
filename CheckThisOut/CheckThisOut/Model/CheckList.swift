@@ -9,14 +9,13 @@ import Foundation
 import SwiftUI
 import FirebaseFirestoreSwift
 
-struct List: Identifiable, Decodable {
+struct CheckList: Identifiable, Decodable {
     
     @DocumentID var id: String? = UUID().uuidString  //create unique identifier
     let ownerUiD: String
-    let title: String
-    let description: String
-    let ListType: String
-//    var completed: Bool
+    var title: String
+    var description: String
+    var ListType: String
     var documentID: String? = ""
     
     func getTypr() -> SelectedButton {

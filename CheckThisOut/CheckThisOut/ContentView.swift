@@ -20,6 +20,7 @@ struct ContentView: View {
             } else {
                 if let user = viewModel.currentUser {
                     DashboardView(user: user)
+//                    CloneDashboardView(user: user)
                 }
             }
         }
