@@ -14,12 +14,16 @@ struct ListView: View {
     @ObservedObject var viewModel: ListViewModel
     
     var body: some View {
-        ZStack {
-            HStack {
+        NavigationLink( //start add
+            destination: OneListView(list: list)
+                .navigationBarHidden(true),
+            label: {
+                HStack { // end add
                 
                 VStack(alignment: .leading, spacing: 5) {
                     Text(list.title)
                         .font(.system(size: 20))
+                        .foregroundColor(.black)
                         .fontWeight(.bold)
                     
                     if list.description != "" {
@@ -31,19 +35,19 @@ struct ListView: View {
                         } // end of Hstack
                     }
                     
-                    NavigationLink(
-                        destination: OneListView(list: list)
-                            .navigationBarHidden(true),
-                        label: {
-                            HStack {
-                                Text("Task View")
-                                    .font(.system(size: 14, weight: .semibold))
-                                    .foregroundColor(.green)
-                            }
-                            .foregroundColor(.black)
-                            .padding(.bottom,14)
-                        }
-                    )//end of Nav
+//                    NavigationLink(
+//                        destination: OneListView(list: list)
+//                            .navigationBarHidden(true),
+//                        label: {
+//                            HStack {
+//                                Text("Task View")
+//                                    .font(.system(size: 14, weight: .semibold))
+//                                    .foregroundColor(.green)
+//                            }
+//                            .foregroundColor(.black)
+//                            .padding(.bottom,14)
+//                        }
+//                    )//end of Nav
                 } // end of Vstack
                 .padding(.leading,10)
                 
@@ -66,11 +70,13 @@ struct ListView: View {
         }
 //        .border(.black, width: 4)
         
+
+        )// end nav //add
     }
-}
 
 struct ListView_Previews: PreviewProvider {
     static var previews: some View {
         ListView(list: list01, viewModel: ListViewModel())
     }
 }
+}// add
