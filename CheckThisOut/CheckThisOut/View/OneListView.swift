@@ -9,9 +9,16 @@ import SwiftUI
 
 struct OneListView: View {
     
-//    let tasks = testDataTasks
-    var task: Tasks
-//    @ObservedObject var viewModel = TasksViewModel()
+    var list: CheckList
+    @ObservedObject var viewModel: TasksViewModel
+    @Environment(\.presentationMode) var mode
+    
+    @State var presentAddNewItem = false
+    
+    init(list: CheckList) {
+        self.list = list
+        self.viewModel = TasksViewModel(list: list)
+    }
     
     var body: some View {
         ZStack {
@@ -22,7 +29,7 @@ struct OneListView: View {
                 HStack {
                     
                     Button {
-//                        presentationMode.wrappedValue.dismiss()
+                        mode.wrappedValue.dismiss()
                     } label: {
                         Image(systemName: "arrow.backward")
                             .font(.system(size: 18.0, weight: .bold))
@@ -32,7 +39,7 @@ struct OneListView: View {
                         
                     
                     Spacer()
-                    Text("Task List")
+                    Text("Costco")
                         .font(.system(size: 24))
                         .fontWeight(.bold)
                         .padding(.leading, -41)
@@ -56,28 +63,41 @@ struct OneListView: View {
                 
                 ScrollView{
                     VStack(alignment: .leading)  {
+                        ForEach(viewModel.tasks) { taskViewModel in
+                            TaskView(task: taskViewModel)
+                        }
 
-                        TaskView(task: Tasks(ownerUiD: task.ownerUiD, taskTitle: task.taskTitle, completed: task.completed))
-                            .padding(.bottom, 5)
-                        
-                        TaskView(task: Tasks(ownerUiD: task.ownerUiD, taskTitle: task.taskTitle, completed: task.completed))
-                            .padding(.bottom, 5)
-                        
-                        TaskView(task: Tasks(ownerUiD: task.ownerUiD, taskTitle: task.taskTitle, completed: task.completed))
-                            .padding(.bottom, 5)
+//                            .padding(.bottom, 5)
+//                            .padding(.leading, 10)
+//
+//                        TaskView(task: Tasks(ownerUiD: task.ownerUiD, taskTitle: task.taskTitle, completed: task.completed))
+////                            .padding(.bottom, 5)
+//
+//                        TaskView(task: Tasks(ownerUiD: task.ownerUiD, taskTitle: task.taskTitle, completed: task.completed))
+////                            .padding(.bottom, 5)
  
                     }
-                        
-                        
-                        
+                    
+                    
+//                    if viewModel.presentAddNewItem {
+//                        BlankView()
+//                        CreateTaskView(user: user, viewModel: viewModel)
+                    
+//                    if presentAddNewItem {
+//
+//                        TaskView(task: Tasks(ownerUiD: task.ownerUiD, taskTitle: "", completed: false))
+//
+//                    }
                     
 
                 }// end of ScrollView
 //                    .padding(.trailing, 8)
                 
-                Button {
-    //                viewModel.showCreateListView = true
-                } label: {
+
+                
+                Button (action: {self.presentAddNewItem.toggle()}) {
+                    
+                 HStack {
                         Text("Add New Task")
                         .foregroundColor(.black)
                         .font(.system(size: 20))
@@ -86,8 +106,27 @@ struct OneListView: View {
                         .border(Color.black, width: 3)
 
                 }
+                }
                 .background(Color("Purple"))
                 .padding(20)
+                
+//                Button (action: {self.presentAddNewItem.toggle()}) {
+////                    viewModel.showpresentAddNewItem = true
+////                        Image(systemName: "plus.circle.fill")
+////                        .resizable()
+////                        .frame(width: width: 20, height: 20)
+//
+//                } label: {
+//                        Text("Add New Task")
+//                        .foregroundColor(.black)
+//                        .font(.system(size: 20))
+//                        .frame(width: 140, height: 20)
+//                        .padding()
+//                        .border(Color.black, width: 3)
+//
+//                }
+//                .background(Color("Purple"))
+//                .padding(20)
                 
             }
         }
@@ -97,86 +136,6 @@ struct OneListView: View {
 
 struct OneListView_Previews: PreviewProvider {
     static var previews: some View {
-        OneListView(task: task02)
+        OneListView(list: list01)
     }
 }
-
-
-//    
-//    let user: AppUser
-//    
-//    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-//    
-////    @ObservedObject var viewModel = ListViewModel()
-//    
-////    @Environment(\.presentationMode) var mode
-//    
-//    var body: some View {
-//        
-//        ZStack {
-//            
-//            BackgroundView()
-//            
-//            VStack {
-//                HStack {
-//                    
-//                    Spacer()
-//                    Button {
-//                        presentationMode.wrappedValue.dismiss()
-//                    } label: {
-//                        Text("Back")
-//                            .foregroundColor(Color(.systemGray))
-//                        Spacer()
-//                    }
-//                    .padding()
-//                } // End of HStack
-//                
-//                
-//                    
-//                .overlay {
-//                    HStack {
-//                        Spacer()
-//                        Text("Name of the List")
-//                            .font(.system(size: 24))
-//                            .fontWeight(.bold)
-//                        Spacer()
-//                        } //End of HStack
-//                    
-//                }
-//  
-//
-//                ScrollView {
-//                    Text("I am a task!")
-//                    
-//                }
-//                
-//            } // End of VStack
-//            
-//            
-//            
-////            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-////            Button {
-////                mode.wrappedValue.dismiss()
-////            } label: {
-////                HStack {
-////                    Text("Already have an account?")
-////                        .font(.system(size: 14))
-////                    Text("Sign In")
-////                        .font(.system(size: 14, weight: .semibold))
-////                }
-////                .foregroundColor(.black)
-////            }
-////            .padding(.bottom,16)
-//            
-//        }
-//        
-//        
-//    }
-//}
-//
-//struct OneListView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        OneListView(user: appUser01)
-//    }
-//}
-

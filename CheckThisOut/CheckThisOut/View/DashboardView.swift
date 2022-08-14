@@ -13,7 +13,7 @@ struct DashboardView: View {
     
     @State var searchText: String = ""
     
-    @ObservedObject var viewModel = ListViewModel() //buggy
+    @ObservedObject var viewModel = ListViewModel()
     
     var body: some View {
         ZStack {
@@ -52,7 +52,23 @@ struct DashboardView: View {
                         .padding(.top,50)
                 }
                 
-                ScrollView { 
+                ScrollView {
+                    
+//                    VStack {
+//                        NavigationLink(
+//                            destination: OneListView(list: viewModel.listsFiltered.first)
+//                                .navigationBarHidden(true),
+//                            label: {
+//                                HStack {
+//                                    Text("Task View")
+//                                        .font(.system(size: 14, weight: .semibold))
+//                                        .foregroundColor(.green)
+//                                }
+//                                .foregroundColor(.black)
+//                                .padding(.bottom,14)
+//                            }
+//                        )
+//                    }
 
                     VStack(spacing: 10) {
                         ForEach(viewModel.listsFiltered, id: \.id) { list in
@@ -70,6 +86,8 @@ struct DashboardView: View {
                 } //end of Scrollview
 
             }//end of Vstack
+            
+            
             
             .overlay(
                 VStack {
@@ -97,6 +115,8 @@ struct DashboardView: View {
                 BlankView()
                 CreateListView(user: user, viewModel: viewModel)
             }
+            
+            
         }//end of Zstack
         
     }
