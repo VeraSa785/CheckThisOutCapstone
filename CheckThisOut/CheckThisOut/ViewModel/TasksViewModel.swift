@@ -56,17 +56,6 @@ class TasksViewModel: ObservableObject {
         }
     }
     
-    func updateTask(taskId: String, task: Tasks) {
-        guard let uid = AuthViewModel.shared.userSession?.uid else {return}
-        
-        COLLECTION_USERS.document(uid).collection("lists").document(list.documentID!).collection("tasks").document(taskId).updateData(["taskTitle": task.taskTitle]) { error in
-            if let error = error {
-                print("DEBUG: \(error.localizedDescription)")
-                return
-            }
-            self.loadTasks()
-        }
-    }
     func uploadTask(task: Tasks) {
         guard let user = AuthViewModel.shared.currentUser else {return}
 
@@ -75,6 +64,18 @@ class TasksViewModel: ObservableObject {
                                    "completed": task.completed
         ]
         COLLECTION_USERS.document(user.id ?? "").collection("lists").document(list.documentID!).collection("tasks").addDocument(data: data) { error in
+            if let error = error {
+                print("DEBUG: \(error.localizedDescription)")
+                return
+            }
+            self.loadTasks()
+        }
+    }
+    
+    func updateTask(taskId: String, task: Tasks) {
+        guard let uid = AuthViewModel.shared.userSession?.uid else {return}
+        
+        COLLECTION_USERS.document(uid).collection("lists").document(list.documentID!).collection("tasks").document(taskId).updateData(["taskTitle": task.taskTitle]) { error in
             if let error = error {
                 print("DEBUG: \(error.localizedDescription)")
                 return

@@ -20,21 +20,6 @@ struct TaskView: View {
     
     var body: some View {
         
-        //            Button {
-        //                if list.completed {
-        //                    viewModel.unCompleteList(listId: list.documentID ?? "")
-        //                } else {
-        //                    viewModel.completeList(listId: list.documentID ?? "")
-        //                }
-        //            } label: {
-        //                Image(systemName: list.completed ? "checkmark.square.fill" : "square")
-        //                    .resizable()
-        //                    .frame(width: 25, height: 25)
-        //                    .foregroundColor(Color(.black))
-        //            }
-        
-        //        Image(systemName: task.completed ? "checkmark.circle.fill" : "circle")
-        
         HStack {
             Button {
                 if task.completed {
@@ -58,11 +43,9 @@ struct TaskView: View {
             TextField("Enter the task title", text: $task.taskTitle)
                 .onSubmit {
                     print("Submiting")
-//                    viewModel.uploadList(list: CheckList(ownerUiD: user.id ?? "", title: title, description: ListDescription, ListType: viewModel.filterListSelected == .all ? "Extra" : viewModel.filterListSelected.rawValue))
                     viewModel.uploadTask(task: Tasks(taskTitle: task.taskTitle, completed: false))
                     //                    task.taskTitle = $task.taskTitle
 //                    viewModel.updateTask(taskId: task.documentID ?? "", task: Tasks(taskTitle: task.taskTitle, completed: false))
-//                    task.taskTitle = $task.taskTitle
                 }
                 .foregroundColor(.black)
                 .font(.system(size: 20))

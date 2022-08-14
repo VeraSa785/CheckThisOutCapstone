@@ -74,18 +74,7 @@ struct OneListView: View {
 //                            .padding(.bottom, 5)
 //                            .padding(.leading, 10)
 //
-//                        TaskView(task: Tasks(ownerUiD: task.ownerUiD, taskTitle: task.taskTitle, completed: task.completed))
-////                            .padding(.bottom, 5)
-//
-//                        TaskView(task: Tasks(ownerUiD: task.ownerUiD, taskTitle: task.taskTitle, completed: task.completed))
-////                            .padding(.bottom, 5)
- 
                     }
-                    
-                    
-//                    if viewModel.presentAddNewItem {
-//                        BlankView()
-//                        CreateTaskView(user: user, viewModel: viewModel)
                     
                     if presentAddNewItem {
                         TaskView(task: Tasks(taskTitle: "", completed: false), viewModel: viewModel, user: appUser01)
@@ -94,8 +83,6 @@ struct OneListView: View {
 //                        }
 
                     }
-                    
-
                 }// end of ScrollView
 //                    .padding(.trailing, 8)
                 
@@ -121,24 +108,6 @@ struct OneListView: View {
                 }
                 .background(Color("Purple"))
                 .padding(20)
-                
-//                Button (action: {self.presentAddNewItem.toggle()}) {
-////                    viewModel.showpresentAddNewItem = true
-////                        Image(systemName: "plus.circle.fill")
-////                        .resizable()
-////                        .frame(width: width: 20, height: 20)
-//
-//                } label: {
-//                        Text("Add New Task")
-//                        .foregroundColor(.black)
-//                        .font(.system(size: 20))
-//                        .frame(width: 140, height: 20)
-//                        .padding()
-//                        .border(Color.black, width: 3)
-//
-//                }
-//                .background(Color("Purple"))
-//                .padding(20)
                 
             }
         }
