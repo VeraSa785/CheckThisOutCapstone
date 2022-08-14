@@ -39,7 +39,7 @@ struct OneListView: View {
                         
                     
                     Spacer()
-                    Text("Costco")
+                    Text(list.title)
                         .font(.system(size: 24))
                         .fontWeight(.bold)
                         .padding(.leading, -41)
