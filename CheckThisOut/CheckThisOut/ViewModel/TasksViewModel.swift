@@ -24,8 +24,7 @@ class TasksViewModel: ObservableObject {
     func loadTasks() {
         guard let user = AuthViewModel.shared.currentUser else {return}
         
-        let query = COLLECTION_USERS.document(user.id ?? "").collection("lists").document(list.documentID!).collection("tasks")
-            //.order(by: "completed", descending: false)
+        let query = COLLECTION_USERS.document(user.id ?? "").collection("lists").document(list.documentID!).collection("tasks").order(by: "taskTitle", descending: false)
         
         query.getDocuments { snapshot, _ in
             
@@ -72,10 +71,11 @@ class TasksViewModel: ObservableObject {
         }
     }
     
+    
     func updateTask(taskId: String, task: Tasks) {
         guard let uid = AuthViewModel.shared.userSession?.uid else {return}
         
-        COLLECTION_USERS.document(uid).collection("lists").document(list.documentID!).collection("tasks").document(taskId).updateData(["taskTitle": task.taskTitle]) { error in
+        COLLECTION_USERS.document(uid).collection("lists").document(list.documentID!).collection("tasks").document(taskId).updateData(["taskTitle": task.taskTitle]){ error in
             if let error = error {
                 print("DEBUG: \(error.localizedDescription)")
                 return

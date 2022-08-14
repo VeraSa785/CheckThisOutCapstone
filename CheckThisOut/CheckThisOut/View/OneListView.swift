@@ -16,7 +16,7 @@ struct OneListView: View {
     @State var presentAddNewItem = false
     @State var documentID: String? = ""
     
-//    @State var taskTitle: String = ""
+    @State var taskTitle: String = ""
 //    @State var completed: Bool
     
     init(list: CheckList) {
@@ -77,7 +77,14 @@ struct OneListView: View {
                     }
                     
                     if presentAddNewItem {
-                        TaskView(task: Tasks(taskTitle: "", completed: false), viewModel: viewModel, user: appUser01)
+                        
+                        TaskView(task: Tasks(taskTitle: taskTitle, completed: false), viewModel: viewModel, user: appUser01) { task in
+                            
+                            viewModel.uploadTask(task: Tasks(taskTitle: task.taskTitle, completed: false))
+                            self.presentAddNewItem.toggle()
+                            
+                        }
+                        
                         
 //                        TaskView(task: Tasks(taskTitle: "", completed: false), viewModel: viewModel) { task in self.viewModel.uploadTask(task: Tasks(taskTitle: taskTitle, completed: false))
 //                        }
