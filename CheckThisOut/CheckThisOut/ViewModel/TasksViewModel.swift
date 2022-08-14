@@ -24,7 +24,7 @@ class TasksViewModel: ObservableObject {
     func loadTasks() {
         guard let user = AuthViewModel.shared.currentUser else {return}
         
-        let query = COLLECTION_USERS.document(user.id ?? "").collection("lists").document(list.documentID!).collection("a123")
+        let query = COLLECTION_USERS.document(user.id ?? "").collection("lists").document(list.documentID!).collection("tasks")
             //.order(by: "completed", descending: false)
         
         query.getDocuments { snapshot, _ in
@@ -39,18 +39,42 @@ class TasksViewModel: ObservableObject {
         }
     }
     
-    
-    func uploadTask(task: Tasks) {
+   
+    func createNewTask(task: Tasks) {
         guard let user = AuthViewModel.shared.currentUser else {return}
         
         let data: [String: Any] = ["ownerUiD": task.id ?? "",
-                                   //                                   "listId": task.listId,
-                                   //                                   "listTitle": task.listTitle,
-                                   //                                   "listDescription": task.listDescription,
+                                   "taskTitle": "",
+                                   "completed": false
+        ]
+        COLLECTION_USERS.document(user.id ?? "").collection("lists").document(list.documentID!).collection("tasks").addDocument(data: data) { error in
+            if let error = error {
+                print("DEBUG: \(error.localizedDescription)")
+                return
+            }
+            self.loadTasks()
+        }
+    }
+    
+    func updateTask(taskId: String, task: Tasks) {
+        guard let uid = AuthViewModel.shared.userSession?.uid else {return}
+        
+        COLLECTION_USERS.document(uid).collection("lists").document(list.documentID!).collection("tasks").document(taskId).updateData(["taskTitle": task.taskTitle]) { error in
+            if let error = error {
+                print("DEBUG: \(error.localizedDescription)")
+                return
+            }
+            self.loadTasks()
+        }
+    }
+    func uploadTask(task: Tasks) {
+        guard let user = AuthViewModel.shared.currentUser else {return}
+
+        let data: [String: Any] = ["ownerUiD": task.id ?? "",
                                    "taskTitle": task.taskTitle,
                                    "completed": task.completed
         ]
-        COLLECTION_USERS.document(user.id ?? "").collection("lists").document(list.documentID!).collection("a123").addDocument(data: data) { error in
+        COLLECTION_USERS.document(user.id ?? "").collection("lists").document(list.documentID!).collection("tasks").addDocument(data: data) { error in
             if let error = error {
                 print("DEBUG: \(error.localizedDescription)")
                 return
@@ -62,6 +86,7 @@ class TasksViewModel: ObservableObject {
     func deleteTask(taskId: String) {
         guard let uid = AuthViewModel.shared.userSession?.uid else {return}
         
+//        COLLECTION_USERS.document(uid).collection("tasks").document(taskId).delete() { error in
         COLLECTION_USERS.document(uid).collection("tasks").document(taskId).delete() { error in
             if let error = error {
                 print("DEBUG: \(error.localizedDescription)")
@@ -75,7 +100,7 @@ class TasksViewModel: ObservableObject {
     func completeTask(taskId: String) {
         guard let uid = AuthViewModel.shared.userSession?.uid else {return}
         
-        COLLECTION_USERS.document(uid).collection("tasks").document(taskId).updateData(["copmleted": true]) { error in
+        COLLECTION_USERS.document(uid).collection("lists").document(list.documentID!).collection("tasks").document(taskId).updateData(["completed": true]) { error in
             if let error = error {
                 print("DEBUG: \(error.localizedDescription)")
                 return
@@ -89,7 +114,7 @@ class TasksViewModel: ObservableObject {
     func uncompleteTask(taskId: String) {
         guard let uid = AuthViewModel.shared.userSession?.uid else {return}
         
-        COLLECTION_USERS.document(uid).collection("tasks").document(taskId).updateData(["copmleted": false]) { error in
+        COLLECTION_USERS.document(uid).collection("lists").document(list.documentID!).collection("tasks").document(taskId).updateData(["completed": false]) { error in
             if let error = error {
                 print("DEBUG: \(error.localizedDescription)")
                 return

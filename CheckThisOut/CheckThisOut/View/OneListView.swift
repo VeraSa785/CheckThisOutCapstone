@@ -14,6 +14,10 @@ struct OneListView: View {
     @Environment(\.presentationMode) var mode
     
     @State var presentAddNewItem = false
+    @State var documentID: String? = ""
+    
+//    @State var taskTitle: String = ""
+//    @State var completed: Bool
     
     init(list: CheckList) {
         self.list = list
@@ -64,7 +68,7 @@ struct OneListView: View {
                 ScrollView{
                     VStack(alignment: .leading)  {
                         ForEach(viewModel.tasks) { taskViewModel in
-                            TaskView(task: taskViewModel)
+                            TaskView(task: taskViewModel, viewModel: viewModel, user: appUser01)
                         }
 
 //                            .padding(.bottom, 5)
@@ -83,11 +87,13 @@ struct OneListView: View {
 //                        BlankView()
 //                        CreateTaskView(user: user, viewModel: viewModel)
                     
-//                    if presentAddNewItem {
-//
-//                        TaskView(task: Tasks(ownerUiD: task.ownerUiD, taskTitle: "", completed: false))
-//
-//                    }
+                    if presentAddNewItem {
+                        TaskView(task: Tasks(taskTitle: "", completed: false), viewModel: viewModel, user: appUser01)
+                        
+//                        TaskView(task: Tasks(taskTitle: "", completed: false), viewModel: viewModel) { task in self.viewModel.uploadTask(task: Tasks(taskTitle: taskTitle, completed: false))
+//                        }
+
+                    }
                     
 
                 }// end of ScrollView
@@ -95,8 +101,14 @@ struct OneListView: View {
                 
 
                 
-                Button (action: {self.presentAddNewItem.toggle()}) {
+                Button (action: {self.presentAddNewItem.toggle()
+//                    viewModel.createNewTask(task: Tasks(taskTitle: "", completed: false, documentID: documentID))
+                }) {
                     
+//                    viewModel.showpresentAddNewItem = true
+//                    Image(systemName: "plus.circle.fill")
+//                    .resizable()
+//                    .frame(width: 20, height: 20)
                  HStack {
                         Text("Add New Task")
                         .foregroundColor(.black)
