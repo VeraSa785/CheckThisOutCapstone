@@ -22,6 +22,7 @@ struct TaskView: View {
     var body: some View {
         
         HStack {
+            
             Button {
                 if task.completed {
                     viewModel.uncompleteTask(taskId: task.documentID ?? "")
@@ -36,10 +37,11 @@ struct TaskView: View {
                 //                        .frame(width: 25, height: 25)
                     .foregroundColor(Color(.black))
                     .font(.system(size: 18.0, weight: .bold))
-                    .onTapGesture {
-                        self.task.completed.toggle()
-                    }
+                    
             }
+                .onTapGesture {
+                    self.task.completed.toggle()
+                }
             
             
             //            Image(systemName: "squareshape")
@@ -96,3 +98,4 @@ struct TaskView_Previews: PreviewProvider {
         TaskView(task: task01, viewModel: TasksViewModel(list: list01), user: appUser01)
     }
 }
+
