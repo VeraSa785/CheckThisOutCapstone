@@ -18,16 +18,17 @@ struct TaskView: View {
     
     let user: AppUser
     var onCommit:(Tasks) -> (Void) = { _ in } //tutorial
+//    var onChange:(Tasks) -> (Void) = { _ in }
     var body: some View {
         
         HStack {
             Button {
                 if task.completed {
                     viewModel.uncompleteTask(taskId: task.documentID ?? "")
-//                    task.completed = false toggle to db
+                    task.completed = false
                 } else {
                     viewModel.completeTask(taskId: task.documentID ?? "")
-//                    task.completed = true toggle to db
+                    task.completed = true
                 }
             } label: {
                 Image(systemName: task.completed ? "squareshape.fill" : "squareshape")
@@ -51,7 +52,16 @@ struct TaskView: View {
             
 //                TextField("Enter the task title", text: $task.taskTitle)
             
-            TextField("Enter the task title", text: $task.taskTitle, onCommit: {self.onCommit(self.task)})
+            TextField("Enter the task title", text: $task.taskTitle, onEditingChanged: { (changed) in
+                if changed {
+                    print("text edit has begun")
+                } else {
+                    print("committed the change")
+                    viewModel.updateTask(taskId: task.documentID ?? "", task: Tasks(taskTitle: task.taskTitle, completed: false))
+                }
+            onCommit: do {self.onCommit(self.task)}
+             })
+//                      , onChange:(self.onChange(self.task)))
 //            TextField("Enter the task title", text: $task.taskTitle, onCommit: {
 //                viewModel.uploadTask(task: Tasks(taskTitle: task.taskTitle, completed: false))
 //            })
