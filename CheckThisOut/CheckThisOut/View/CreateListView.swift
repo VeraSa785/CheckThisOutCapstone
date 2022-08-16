@@ -84,7 +84,7 @@ struct CreateListView: View {
         .background(Color("Yellow"))
 //        .background(Color.yellow.opacity(0.2))
 //        .background(Color.purple.opacity(0.1))
-//        .cornerRadius(10)
+        .cornerRadius(10)
     }
 }
 

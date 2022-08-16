@@ -34,7 +34,7 @@ struct ListTextField: View {
         CustomTextField(text: $text, placeholder: Text(placeholder), imageName: "checkmark.square", foregroundColor: .gray)
             .padding()
             .background(Color(.white))
-//            .cornerRadius(10)
+            .cornerRadius(10)
             .limitInputLength(value: $text, length: 46)
             
     }
