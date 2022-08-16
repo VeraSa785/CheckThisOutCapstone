@@ -27,7 +27,7 @@ struct NewOneListView: View {
     
     var body: some View {
         ZStack {
-            BackgroundView()
+//            BackgroundView()
             
             VStack {
                 
@@ -43,11 +43,16 @@ struct NewOneListView: View {
                     }
                         
                     
-                    Spacer()
+//                    Spacer()
+                    
                     Text(list.title)
                         .font(.system(size: 24))
                         .fontWeight(.bold)
-                        .padding(.leading, -41)
+//                        .padding(.leading, -41)
+                        .frame(width: 290, alignment: .center)
+//                        .border(Color.black, width: 3)
+                        .multilineTextAlignment(.center)
+                        .lineLimit(20)
                     Spacer()
                 } // end of Hstack
                 .overlay {

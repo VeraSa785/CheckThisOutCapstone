@@ -63,6 +63,8 @@ struct CustomTextEditor: View {
                 
                 TextEditor(text: $text)
                     .autocapitalization(.none)
+                    .limitInputLength(value: $text, length: 34)
+                    .padding(.leading, 2)
     
             }
         }

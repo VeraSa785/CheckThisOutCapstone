@@ -13,6 +13,8 @@ struct BlankView: View {
             Spacer()
         }
         .frame(minWidth: 0,maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
+//        .background(Color.white)
+//        .opacity(0.95)
         .background(Color.black)
         .opacity(0.5)
         .edgesIgnoringSafeArea(.all)

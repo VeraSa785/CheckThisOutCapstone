@@ -34,7 +34,7 @@ struct SignupView: View {
                     UserTextField(text: $firstName, placeholder: "First Name")
                     UserTextField(text: $lastName, placeholder: "Last Name")
                     EmailTextField(text: $email)
-                    PasswordSecureField(text: $password, placeholder: "Password")
+                    PasswordSecureField(text: $password, placeholder: "Password, enter > 6 characters")
                     PasswordSecureField(text: $confirmPassword, placeholder: "Confirm Password")
                     
                 }// End of VStack

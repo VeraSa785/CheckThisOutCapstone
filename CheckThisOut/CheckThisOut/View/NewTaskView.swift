@@ -31,8 +31,10 @@ struct NewTaskView: View {
                 } else {
                     print("committed the change")
                     if (task.documentID == nil || task.documentID!.isEmpty) {
+                        if (task.taskTitle.isEmpty == false){
                         isTyping = false
                         viewModel.uploadTask(task: Tasks(taskTitle: task.taskTitle, completed: false))
+                        }
                     } else {
                         isTyping = false
                         taskTitle = ""
@@ -46,6 +48,8 @@ struct NewTaskView: View {
                 .onTapGesture (perform: {
                     isTyping = true
                 })
+                .limitInputLength(value: $task.taskTitle, length: 30)
+            
                 .overlay(
                     HStack {
 
@@ -111,8 +115,12 @@ struct TaskTextFieldModifier: ViewModifier {
             .padding(.leading, 45)
             .padding(.horizontal)
             .frame(height: 25)
-            .background(Color("Yellow"))
-            .cornerRadius(5)
+            .background(Color(.white))
+//            .background(Color("Yellow"))
+//            .cornerRadius(5)
+//            .frame(width: 350)
+//            .multilineTextAlignment(.leading)
+//            .lineLimit(20)
     }
 }
 

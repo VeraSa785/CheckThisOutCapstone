@@ -79,7 +79,7 @@ struct SearchTextFieldModifier: ViewModifier {
             .padding(.horizontal)
             .frame(height: 45)
             .background(Color(.systemGray6))
-            .cornerRadius(5)
+//            .cornerRadius(5)
     }
 }
 
