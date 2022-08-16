@@ -12,6 +12,7 @@ struct ListView: View {
     var list: CheckList
     
     @ObservedObject var viewModel: ListViewModel
+//    @State var  showConfirmDeleteListView = false
     
     var body: some View {
         NavigationLink( //start add
@@ -55,6 +56,7 @@ struct ListView: View {
                 Spacer()
                 
                 Button {
+//                    showConfirmDeleteListView = true
                     viewModel.deleteList(listId: list.documentID ?? "")
                 } label: {
                     Image(systemName: "x.circle")
@@ -68,6 +70,13 @@ struct ListView: View {
             .padding(15)
             .frame(width: UIScreen.main.bounds.size.width - 25, height: 90)
         .background(Color("Purple"))
+                
+//                if showConfirmDeleteListView {
+//                    BlankView()
+//                    ConfirmDeleteListView(user: appUser01, list: list01, viewModel: ListViewModel())
+//                }
+                
+                
         }
 //        .border(.black, width: 4)
         

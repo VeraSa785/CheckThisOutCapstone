@@ -14,6 +14,7 @@ struct SignupView: View {
     @State var email = ""
     @State var password = ""
     @State var confirmPassword = ""
+//    @State var showAllertPasswordView = false
     
     @Environment(\.presentationMode) var mode
     
@@ -41,8 +42,14 @@ struct SignupView: View {
                 .padding(.horizontal,32)
                 
                 Button {
-                    //sign up action
-                    viewModel.register(withEmail: email, password: password, firstName: firstName, lastName: lastName)
+                    //sign up action, dont have time to finish
+                    if (password.count > 6) {
+                        viewModel.register(withEmail: email, password: password, firstName: firstName, lastName: lastName)
+                    } else {
+                        print("password wrong")
+//                        showAllertPasswordView = true
+                    }
+                    
                     
                 } label: {
                     AuthenticateButton(text: "Sign Up")
@@ -50,6 +57,10 @@ struct SignupView: View {
                 }
                 Spacer()
                 
+//                if showAllertPasswordView {
+//                    BlankView()
+//                    AllertPasswordView()
+//                }
                 
                 Button {
                     mode.wrappedValue.dismiss()

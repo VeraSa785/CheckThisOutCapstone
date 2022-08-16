@@ -12,6 +12,7 @@ struct DashboardView: View {
     let user: AppUser
     
     @State var searchText: String = ""
+//    @State var  showConfirmDeleteListView = false
     
     @ObservedObject var viewModel = ListViewModel()
     
@@ -85,8 +86,11 @@ struct DashboardView: View {
                 } //end of Vstack
                 } //end of Scrollview
 
+//                if showConfirmDeleteListView {
+//                    BlankView()
+//                    ConfirmDeleteListView(user: appUser01, list: list01, viewModel: ListViewModel())
+//                }
             }//end of Vstack
-            
             
             
             .overlay(

@@ -70,7 +70,7 @@ struct CustomTextEditor: View {
         }
         .frame(height: 120)
         .background(Color(.white))
-        .cornerRadius(10)
+//        .cornerRadius(10)
         .foregroundColor(colorScheme == .dark ? .white: .black)
     }
 }
