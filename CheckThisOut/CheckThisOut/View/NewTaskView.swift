@@ -9,18 +9,20 @@
 import SwiftUI
 
 struct NewTaskView: View {
+
     
     @State var task: Tasks
     @ObservedObject var viewModel: TasksViewModel
-    
+
     let user: AppUser
-    var onCommit:(Tasks) -> (Void) = { _ in }
+    
     @Binding var inputTask: String
     @State var isTyping = false
     @State var taskTitle: String = ""
-    
+
+    var onCommitTask:(Tasks) -> (Void) = { _ in }
     var body: some View {
-        
+
         HStack {
             TextField("Enter the task title", text: $task.taskTitle, onEditingChanged: { (changed)
                 in
@@ -33,13 +35,12 @@ struct NewTaskView: View {
                         viewModel.uploadTask(task: Tasks(taskTitle: task.taskTitle, completed: false))
                     } else {
                         isTyping = false
+                        taskTitle = ""
                         viewModel.updateTask(taskId: task.documentID ?? "", task: Tasks(taskTitle: task.taskTitle, completed: false))
                     }
-//                    isTyping = false
-//                    viewModel.updateTask(taskId: task.documentID ?? "", task: Tasks(taskTitle: task.taskTitle, completed: false))
-//                    viewModel.uploadTask(task: Tasks(taskTitle: task.taskTitle, completed: false))
+                    onCommitTask(task)
                 }
-            onCommit: do {self.onCommit(self.task)}
+//            onCommit: do {self.onCommitTask(self.task)}
              })
                 .TaskTextFieldStyle()
                 .onTapGesture (perform: {
@@ -62,12 +63,12 @@ struct NewTaskView: View {
                             //                        .frame(width: 25, height: 25)
                                 .foregroundColor(Color(.black))
                                 .font(.system(size: 18.0, weight: .bold))
-                                
+
                         }
                             .onTapGesture {
                                 self.task.completed.toggle()
                             }
-                        
+
                         Spacer()
 
                     }
@@ -76,7 +77,7 @@ struct NewTaskView: View {
 
                 )
 //                .transition(.move(edge: .trailing))
-            
+
             if isTyping {
                 Button(action: {
                     viewModel.deleteTask(taskId: task.documentID ?? "")
@@ -88,7 +89,7 @@ struct NewTaskView: View {
             }
 
         }
-        
+
     }
 }
 
@@ -98,7 +99,7 @@ struct NewTaskView_Previews: PreviewProvider {
             BackgroundView()
             NewTaskView(task: task01, viewModel: TasksViewModel(list: list01), user: appUser01, inputTask: .constant(""))
         }
-        
+
     }
 }
 

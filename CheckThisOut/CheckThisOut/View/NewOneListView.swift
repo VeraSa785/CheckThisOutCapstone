@@ -81,7 +81,14 @@ struct NewOneListView: View {
                     
                     if presentAddNewItem {
                         
-                        NewTaskView(task: Tasks(taskTitle: taskTitle, completed: false), viewModel: viewModel, user: appUser01, inputTask: .constant(""))
+                        NewTaskView(task: Tasks(taskTitle: taskTitle, completed: false), viewModel: viewModel, user: appUser01, inputTask: .constant(""), onCommitTask: { task in
+                            self.presentAddNewItem = false
+                        })
+                        
+                        
+//                        { task in
+//                            self.presentAddNewItem.toggle()
+//                        }
 //                        { task in
                             
 //                            self.viewModel.uploadTask(task: Tasks(taskTitle: "task.taskTitle", completed: false))
