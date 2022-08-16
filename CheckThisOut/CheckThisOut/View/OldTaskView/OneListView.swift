@@ -70,6 +70,7 @@ struct OneListView: View {
                         ForEach(viewModel.tasks) { taskViewModel in
                             TaskView(task: taskViewModel, viewModel: viewModel, user: appUser01)
                         }
+                        
 
 //                            .padding(.bottom, 5)
 //                            .padding(.leading, 10)
@@ -80,8 +81,8 @@ struct OneListView: View {
                         
                         TaskView(task: Tasks(taskTitle: taskTitle, completed: false), viewModel: viewModel, user: appUser01) { task in
                             
-                            viewModel.uploadTask(task: Tasks(taskTitle: task.taskTitle, completed: false))
-                            self.presentAddNewItem.toggle()
+//                            self.viewModel.uploadTask(task: Tasks(taskTitle: "task.taskTitle", completed: false))
+//                            self.presentAddNewItem.toggle()
                             
                         }
                         
@@ -96,9 +97,9 @@ struct OneListView: View {
 
                 
                 Button (action: {self.presentAddNewItem.toggle()
-//                    viewModel.createNewTask(task: Tasks(taskTitle: "", completed: false, documentID: documentID))
-                }) {
+//                    viewModel.uploadTask(task: Tasks(taskTitle: taskTitle, completed: false))
                     
+                }) {
 //                    viewModel.showpresentAddNewItem = true
 //                    Image(systemName: "plus.circle.fill")
 //                    .resizable()

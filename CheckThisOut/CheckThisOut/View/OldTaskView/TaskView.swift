@@ -49,20 +49,23 @@ struct TaskView: View {
             //            Text(task.taskTitle)
             //            TextField("Enter the task title", text: $task.taskTitle, onCommit: {self.onCommit(self.task)})
             
-            
-//      new      TextField("Enter the task title", text: $task.taskTitle)
-            
-//                TextField("Enter the task title", text: $task.taskTitle)
+    
             
             TextField("Enter the task title", text: $task.taskTitle, onEditingChanged: { (changed) in
                 if changed {
                     print("text edit has begun")
                 } else {
                     print("committed the change")
+//                    print(snapshot?.taskTitle)
                     viewModel.updateTask(taskId: task.documentID ?? "", task: Tasks(taskTitle: task.taskTitle, completed: false))
                 }
             onCommit: do {self.onCommit(self.task)}
+//            onDelete: do {(viewModel.deleteTask(taskId: task.documentID ?? ""))}
              })
+            
+//            TextField("Enter the task title", text: $task.taskTitle, onCommit:{self.onCommit(self.task)})
+            
+            
 //                      , onChange:(self.onChange(self.task)))
 //            TextField("Enter the task title", text: $task.taskTitle, onCommit: {
 //                viewModel.uploadTask(task: Tasks(taskTitle: task.taskTitle, completed: false))

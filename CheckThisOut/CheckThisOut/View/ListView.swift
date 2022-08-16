@@ -15,7 +15,8 @@ struct ListView: View {
     
     var body: some View {
         NavigationLink( //start add
-            destination: OneListView(list: list)
+//            destination: OneListView(list: list)
+            destination: NewOneListView(list: list)
                 .navigationBarHidden(true),
             label: {
                 HStack { // end add

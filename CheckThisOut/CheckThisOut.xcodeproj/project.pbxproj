@@ -35,6 +35,8 @@
 		5E72CB7828979DDD005BBE58 /* UserTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E72CB7728979DDD005BBE58 /* UserTextField.swift */; };
 		5E7777BF28A0C78A002E672F /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7777BE28A0C78A002E672F /* ListViewModel.swift */; };
 		5E7777C128A0DA86002E672F /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7777C028A0DA86002E672F /* SearchBarView.swift */; };
+		5E7B0B4328AAF369006E93F5 /* NewTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7B0B4228AAF368006E93F5 /* NewTaskView.swift */; };
+		5E7B0B4528AB07F2006E93F5 /* NewOneListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7B0B4428AB07F2006E93F5 /* NewOneListView.swift */; };
 		5E806C8228A1442C0063FE82 /* ListButtonStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E806C8128A1442C0063FE82 /* ListButtonStack.swift */; };
 		5E806C8428A14A3F0063FE82 /* AddListLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E806C8328A14A3F0063FE82 /* AddListLogo.swift */; };
 		5E80E7F228A456B700D76CFE /* OneListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E80E7F128A456B700D76CFE /* OneListView.swift */; };
@@ -107,6 +109,8 @@
 		5E72CB7728979DDD005BBE58 /* UserTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTextField.swift; sourceTree = "<group>"; };
 		5E7777BE28A0C78A002E672F /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		5E7777C028A0DA86002E672F /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		5E7B0B4228AAF368006E93F5 /* NewTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskView.swift; sourceTree = "<group>"; };
+		5E7B0B4428AB07F2006E93F5 /* NewOneListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOneListView.swift; sourceTree = "<group>"; };
 		5E806C8128A1442C0063FE82 /* ListButtonStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListButtonStack.swift; sourceTree = "<group>"; };
 		5E806C8328A14A3F0063FE82 /* AddListLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListLogo.swift; sourceTree = "<group>"; };
 		5E80E7F128A456B700D76CFE /* OneListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneListView.swift; sourceTree = "<group>"; };
@@ -224,8 +228,9 @@
 				5E8284CB289B356D00146518 /* DashboardView.swift */,
 				5E4F80E028A1E7780093013E /* ListView.swift */,
 				5E4F80E628A1F4870093013E /* CreateListView.swift */,
-				5E2FBFAA28A46E5200BD84D5 /* TaskView.swift */,
-				5E80E7F128A456B700D76CFE /* OneListView.swift */,
+				5E7B0B4628AB3808006E93F5 /* OldTaskView */,
+				5E7B0B4228AAF368006E93F5 /* NewTaskView.swift */,
+				5E7B0B4428AB07F2006E93F5 /* NewOneListView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -288,6 +293,15 @@
 				5E72CB732891FEE4005BBE58 /* PasswordSecureField.swift */,
 			);
 			path = TextFields;
+			sourceTree = "<group>";
+		};
+		5E7B0B4628AB3808006E93F5 /* OldTaskView */ = {
+			isa = PBXGroup;
+			children = (
+				5E80E7F128A456B700D76CFE /* OneListView.swift */,
+				5E2FBFAA28A46E5200BD84D5 /* TaskView.swift */,
+			);
+			path = OldTaskView;
 			sourceTree = "<group>";
 		};
 		5E8284BB289B059600146518 /* Utils */ = {
@@ -457,6 +471,7 @@
 				5E4F80E128A1E7790093013E /* ListView.swift in Sources */,
 				5E8284CC289B356D00146518 /* DashboardView.swift in Sources */,
 				5E8284CA289B2D1A00146518 /* AuthViewModel.swift in Sources */,
+				5E7B0B4328AAF369006E93F5 /* NewTaskView.swift in Sources */,
 				5E80E7F228A456B700D76CFE /* OneListView.swift in Sources */,
 				5E2FBFAD28A4739800BD84D5 /* Tasks.swift in Sources */,
 				5E2FBFAB28A46E5200BD84D5 /* TaskView.swift in Sources */,
@@ -473,6 +488,7 @@
 				5E7139EB2890A46000D79273 /* SignupView.swift in Sources */,
 				5E72CB722891FCDB005BBE58 /* CustomSecureField.swift in Sources */,
 				5E7139E72890A2C800D79273 /* LoginView.swift in Sources */,
+				5E7B0B4528AB07F2006E93F5 /* NewOneListView.swift in Sources */,
 				5E4F80E528A1F36E0093013E /* BlankView.swift in Sources */,
 				5E7139BB2890919900D79273 /* ContentView.swift in Sources */,
 				5E4F80E728A1F4870093013E /* CreateListView.swift in Sources */,

@@ -87,8 +87,7 @@ class TasksViewModel: ObservableObject {
     func deleteTask(taskId: String) {
         guard let uid = AuthViewModel.shared.userSession?.uid else {return}
         
-//        COLLECTION_USERS.document(uid).collection("tasks").document(taskId).delete() { error in
-        COLLECTION_USERS.document(uid).collection("tasks").document(taskId).delete() { error in
+        COLLECTION_USERS.document(uid).collection("lists").document(list.documentID!).collection("tasks").document(taskId).delete() { error in
             if let error = error {
                 print("DEBUG: \(error.localizedDescription)")
                 return
